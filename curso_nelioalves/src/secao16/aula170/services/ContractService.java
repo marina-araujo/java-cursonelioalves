@@ -17,7 +17,7 @@ public class ContractService {
 		
 		double basicQuota = contract.getTotalValue() / months;
 		
-		for (int i=1; i<= months; i++) {
+		for (int i=1; i<=months; i++) {
 			LocalDate dueDate = contract.getDate().plusMonths(i);
 			
 			double interest = onlinePaymentService.interest(basicQuota, i);
@@ -27,6 +27,14 @@ public class ContractService {
 			contract.getInstallments().add(new Installment(dueDate, quota));
 			
 		}
-	}	
+	}
+	
+	public double calculateTotalInterestAndFees(Contract contract) {
+		double totalPaid = 0.0;
+		for (Installment installment : contract.getInstallments()) {
+			totalPaid += installment.getAmount();
+		}
+		return totalPaid - contract.getTotalValue();
+	}
 
 }

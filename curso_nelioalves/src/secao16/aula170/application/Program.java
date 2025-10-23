@@ -41,6 +41,12 @@ public class Program {
 			System.out.println(installment);
 		}
 		
+		double totalInterestAndFees = contractService.calculateTotalInterestAndFees(obj);
+		
+		System.out.println();
+		System.out.println("Total pago: " + String.format("%.2f", (totalInterestAndFees + totalValue)));
+		System.out.println("Total de Juros e Taxas: " + String.format("%.2f", totalInterestAndFees));
+		
 		
 		sc.close();
 
