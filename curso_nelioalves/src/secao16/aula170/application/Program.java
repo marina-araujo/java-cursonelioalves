@@ -8,6 +8,7 @@ import java.util.Scanner;
 import secao16.aula170.entities.Contract;
 import secao16.aula170.entities.Installment;
 import secao16.aula170.services.ContractService;
+import secao16.aula170.services.PayPalService;
 
 public class Program {
 
@@ -31,7 +32,7 @@ public class Program {
 		System.out.print("Entre com o numero de parcelas: ");
 		int n = sc.nextInt();
 		
-		ContractService contractService = new ContractService(null);
+		ContractService contractService = new ContractService(new PayPalService());
 		
 		contractService.processContract(obj, n);
 		
