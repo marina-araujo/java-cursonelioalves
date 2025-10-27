@@ -1,8 +1,8 @@
-package secao17.application;
+package secao17.aula179.application;
 
 import java.util.Scanner;
 
-import secao17.services.PrintService;
+import secao17.aula179.services.PrintService;
 
 public class Program {
 
