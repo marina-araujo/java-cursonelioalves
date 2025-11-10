@@ -1,6 +1,7 @@
 package secao18.aula193.application;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import secao18.aula193.entities.Product;
@@ -15,7 +16,16 @@ public class Program {
 		list.add(new Product("Notebook", 1200.0));
 		list.add(new Product("Tablet", 450.0));
 		
-		list.sort(new MyComparator());
+		Comparator<Product> comp = new Comparator<Product>() { //criação de classe anônima
+
+			@Override
+			public int compare(Product p1, Product p2) {
+				return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+			}
+			
+		};
+		
+		list.sort(comp);
 		
 		for(Product p : list) {
 			System.out.println(p);
