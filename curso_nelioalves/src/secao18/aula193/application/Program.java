@@ -16,14 +16,13 @@ public class Program {
 		list.add(new Product("Notebook", 1200.0));
 		list.add(new Product("Tablet", 450.0));
 		
-		Comparator<Product> comp = new Comparator<Product>() { //criação de classe anônima
-
-			@Override
-			public int compare(Product p1, Product p2) {
-				return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-			}
-			
+		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());		
+		
+		/* FORMA COM {} E COM RETURN:
+		 * Comparator<Product> comp = (p1, p2) -> { // uso de função anônima (expressão lambda). compilador dispensa a declaração do tipo junto dos parâmetros
+			return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
 		};
+		*/
 		
 		list.sort(comp);
 		
