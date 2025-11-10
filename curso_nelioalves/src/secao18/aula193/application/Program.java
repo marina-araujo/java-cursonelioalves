@@ -14,17 +14,22 @@ public class Program {
 		
 		list.add(new Product("TV", 900.0));
 		list.add(new Product("Notebook", 1200.0));
-		list.add(new Product("Tablet", 450.0));
+		list.add(new Product("Tablet", 450.0));			
 		
-		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());		
-		
-		/* FORMA COM {} E COM RETURN:
+		/* VERSÃO COM {} E COM RETURN:
 		 * Comparator<Product> comp = (p1, p2) -> { // uso de função anônima (expressão lambda). compilador dispensa a declaração do tipo junto dos parâmetros
 			return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
 		};
-		*/
+		
+		VERSÃO MAIS REDUZIDA:
+		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());	
 		
 		list.sort(comp);
+		
+		VERSÃO SEM DECLARAÇÃO:
+		*/
+		
+		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 		
 		for(Product p : list) {
 			System.out.println(p);
