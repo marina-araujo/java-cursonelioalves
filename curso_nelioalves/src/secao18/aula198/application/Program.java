@@ -23,7 +23,7 @@ public class Program {
 		
 		// List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
 		
-		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList()); // desse jeito vai aplicar o método estático a cada item da lista
+		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList()); 
 		
 		names.forEach(System.out::println);
 		
