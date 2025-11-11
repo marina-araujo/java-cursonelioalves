@@ -3,6 +3,7 @@ package secao18.aula198.application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import secao18.aula198.entities.Product;
@@ -23,7 +24,9 @@ public class Program {
 		
 		// List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
 		
-		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList()); 
+		Function<Product, String> func = p -> p.getName().toUpperCase();
+		
+		List<String> names = list.stream().map(func).collect(Collectors.toList()); 
 		
 		names.forEach(System.out::println);
 		
