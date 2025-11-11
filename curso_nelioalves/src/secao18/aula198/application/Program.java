@@ -21,7 +21,9 @@ public class Program {
 		
 		// tem que transformar a lista em stream, chamando a stream() e depois o .map() que é uma função dentro de stream. depois instancia um objeto da classe UpperCaseName dentro da stream pra cada item que era da lista. depois converte de stream para lista chamando o .collect(Collectors.toList()). colocando tudo isso dentro de uma lista de strings chamada name:
 		
-		List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		// List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		
+		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList()); // desse jeito vai aplicar o método estático a cada item da lista
 		
 		names.forEach(System.out::println);
 		
