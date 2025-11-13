@@ -2,6 +2,7 @@ package secao18.aula200.application;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Program {
@@ -21,6 +22,16 @@ public class Program {
 		
 		Stream<Long> st4 = Stream.iterate(new Long[] {0L, 1L}, p -> new Long[] {p[1], p[0]+p[1]}).map(p -> p[0]);
 		System.out.println(Arrays.toString(st4.limit(15).toArray())); // sequencia de fibonacci
+		
+		int sum = list.stream().reduce(0, (x, y) -> x + y);
+		System.out.println("List sum = " + sum);
+		
+		List<Integer> newList = list.stream()
+				.filter(x -> x % 2 == 0)
+				.map(x -> x* 10)
+				.collect(Collectors.toList());
+		
+		System.out.println(Arrays.toString(newList.toArray()));
 
 	}
 
